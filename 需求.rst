@@ -1,7 +1,207 @@
-三、需求
 =============
-1.标题
-=========
-1.1标题
-=========
-文字文字
+3.需求
+=============
+
+3.1所需状态和方式
+===================
+
+- 准备就绪：在系统访问量较少或者无访问时，系统应准备好软件资源和网络资源以应对突发访问。
+
+- 活动：优化更新系统，及时响应请求。
+
+- 培训：针对管理人员和使用人员的一系列培训活动
+
+- 降级：为保证系统的正确运行，可牺牲服务体验降级以达到稳定运行。
+
+- 紧急情况或后备：在系统崩溃时，返回正确状态，保护数据库状态。
+
+3.2需求概述
+==============
+
+3.2.1目标
+>>>>>>>>>>>
+
+- 本系统的开发意图：
+
+本系统主要为了更好地保护实验室资产与实验人员的人身安全，合理充分调用实验时间，完整地统计保存实验报告，实时反馈实验成绩。
+具体功能包括，实验器材的管理，实验室的安排，实验人员记录，实验仪器的记录使用，实验报告的整合，实验成绩的录入反馈；
+并且统计分析实验完成率，各类实验的比率，一学期开展的实验总数，实验器材维修率等。
+
+- 应用目标：不仅实现对实验室场所、人员、设备、环境的综合化合智能化管理，更可对设备设施维修、借用、使用申请、授权管理以及人员课程的安排调度，实验数据的统计分析等常规业务流程进行网络化、数字化管理；从而实现实验室的管理和流畅应用，减轻实验室管理人员的工作负担，提高工作效率和服务水平，还可以实验室主管部门的宏观管理和科学决策提供动态、智能、综合的实时管控与信息平台。
+
+- 作用范围：本校全日制大学生、教师以及学校领导、实验室管理员
+
+- 本系统的主要功能以及处理流程
+
+本系统包括用户管理，实验预约，实验报告管理，实验室管理四个功能，最后一项仅对实验室管理员开放。
+
++ 用户管理：登录以及注销修改密码功能。
+
+- 实验预约：教师发布教学计划；实验管理员整理可用实验室和器材，发布实验室状态；学生加入教学计划，预约可用实验室时间。
+
+* 实验报告管理：教师发布收集实验报告信息并设置实验截至日期；学生提交实验报告，并可查看实验报告提交状态；教师批改评定实验报告；学生查看实验报告分数；管理员收集整理统计分析实验报告信息。
+
+实验室管理（只面向管理员）:管理员安全维修实验室以及安排实验室。
+
+
+3.2.2运行环境
+>>>>>>>>>>>>>>>
+
+a.软件环境：
+
+软件将采用Eclipse,Tomcat,MySQL进行开发。主要运用JSP,HTML,JavaScript,JavaBean,Servlet等技术，这些技术已然成熟，可以适应交互式开发和数据库访问。
+可以在Windows,Linux,UNIX,IOS等平台下运行，Web服务器Tomcat 7.0,数据库MySQL,客户端采用谷歌，火狐，360浏览器。
+
+b.硬件环境：一台586以上的微机及兼容
+
+3.2.3用户的特点
+>>>>>>>>>>>>>>>>>
+
+从使用系统的人员组成来看，可分为：
+
+学生：所在学校、院系的所有学生
+
+教职工以及学校领导：有实验教学计划的老师以及学校、学院领导
+
+实验室管理人员：实验室以及实验室材料的管理人员
+
+用户素质较高，普及使用方法便利，可行性强。
+
+3.2.4关键点
+>>>>>>>>>>>>>
+
+a.关键功能：实验室的管理预约以及实验报告的提交
+
+b.关键技术：对数据库进行大量优化，并对后台服务器进行动态管理。
+
+3.2.5约束条件
+>>>>>>>>>>>>>>
+
+a.数据精确度
+
+保证在查询时，使用者都能查询到准确的信息。
+
+b.时间特性
+
+用户高峰期，保证系统的稳定与运行速度。
+
+c.适应性
+
+运行环境不存在困扰
+
+d.经费：软件开发费用以及软件使用培训费用
+
+e.法律：正版，根据《中华人民共和国计算机软件保护条例》可知该系统的开发不存在侵权，违法和责任。
+
+f.社会：符合主流软件使用。
+
+3.3需求规格
+=============
+
+3.3.1软件功能结构
+>>>>>>>>>>>>>>>>>>>
+
+a.主要结构图
+|t6|
+
+b.功能要求
+
+①账号登录、注销、修改密码功能：
+
+学生账号登录、注销、修改密码；教师账号登录、注销、修改密码；管理员账号登录、注销、修改密码。
+
+②实验室管理：
+
+管理员录入实验室信息保存到实验室表中，管理员可以查询详细信息，并进行增删查改等操作；
+学生可根据教学计划安排，自主预约或者班级预约实验室。
+
+③实验器材管理：
+
+管理员录入实验器材信息保存到实验器材表中，管理员可以查询详细信息，并进行增删查改等操作。
+
+④统计管理：管理员按照学院班级可以统计实验完成率，实验总数；按照学期计算实验总数
+
+⑤实验报告管理： 
+
+学生填写实验报告，上传实验报告，可以查看实验报告的状态，查询实验报告的分数；
+
+教师可以查询课程下的实验报告提交数量，查看导出实验报告，批改实验报告，给定实验报告分数；
+
+管理员按照学院、班级、实验项目管理实验报告。
+
+⑥机构管理：
+
+管理员可以按照级别查询学院专业班级。
+
+⑦课程管理：管理员查询课程信息，可以安排相应的实验室。
+
+⑧学生管理：管理员可以通过录入或者是批量导入学生信息，按照关键字查询学生信息，并进行增删改等操作。
+
+⑨教师管理：管理员可以通过录入或者是批量导入学生信息，按照关键字查询学生信息，并进行增删改等操作。
+
+⑩帮助功能：通过智能服务和人工服务及时解决用户的问题与反馈。
+
+3.3.2具体功能实现（包含实现优先级）与测试
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+实验信息管理系统具体需求
+
+|t12|
+|t13|
+
+3.3.3描述约定
+>>>>>>>>>>>>>>>>>
+
+ |t1| 
+ 
+ |t2|
+
+ |t3|
+ 
+ |t4|
+ 
+ |t5|
+ 
+3.3.4页面设计
+ 
+ - 登录主页 |t7|
+ 
+ - 学生详情页 |t9|
+ 
+ - 教师详情页 |t10|
+ 
+ - 管理员详情页 |t11|
+
+.. |t1| image:: http://m.qpic.cn/psb?/V13TVzVU3hBV8n/lzdTyFQ.8kOnvscZJAkEjnsLRCC2yJE9WRZOgurAb58!/b/dLYAAAAAAAAA&bo=KgKsAAAAAAADB6Y!&rf=viewer_4 
+.. |t2| image:: http://m.qpic.cn/psb?/V13TVzVU3hBV8n/DcdVX0aQAZFsqCrPxOhv90GBNqdmtH6PPCDvWLArdSk!/b/dMIAAAAAAAAA&bo=eAJqAQAAAAADFyM!&rf=viewer_4&t=5
+.. |t3| image:: http://m.qpic.cn/psb?/V13TVzVU3hBV8n/smV6kkZKWeSV7RUxrqQk5wFhHRWgeNnq63nw8coYHTk!/b/dL4AAAAAAAAA&bo=dQKyAQAAAAADF*Y!&rf=viewer_4&t=5
+.. |t4| image:: http://m.qpic.cn/psb?/V13TVzVU3hBV8n/IgYKOHTVudWbtQVOnAf7rYkPtc8zcEzPOWdgeVwp.i4!/b/dLYAAAAAAAAA&bo=eAKsAAAAAAADF.Q!&rf=viewer_4&t=5
+.. |t5| image:: http://m.qpic.cn/psb?/V13TVzVU3hBV8n/y6.2pAmZCLH6ttJTnf9saEmsP51ExBt6fxrLcMLr9tM!/b/dL8AAAAAAAAA&bo=dwLyAAAAAAADF7U!&rf=viewer_4
+.. |t6| image:: http://m.qpic.cn/psb?/V13TVzVU3hBV8n/Ch6r7*TL.HU7ezwW0qE1Ot6DPkM9NQDyUZEXXbvW9qU!/b/dFMBAAAAAAAA&bo=ugOPAgAAAAADFwY!&rf=viewer_4&t=5
+.. |t7| image:: http://m.qpic.cn/psb?/V13TVzVU3hBV8n/k3B0NhOL.T8ZM1GjhGN1Uc2kHgoXPC*t6tZPb3Z74Ow!/b/dAgBAAAAAAAA&bo=WAKQAQAAAAARF.s!&rf=viewer_4&t=5
+.. |t8| image:: http://m.qpic.cn/psb?/V13TVzVU3hBV8n/Z7MBEEUO..BQGQ2.iAGOeaUzE7ppzniFeblOyhKJtqE!/b/dL8AAAAAAAAA&bo=eQKCAAAAAAADF8s!&rf=viewer_4
+.. |t9| image:: http://m.qpic.cn/psb?/V13TVzVU3hBV8n/DFRfPCpvGZn0nUfBEKvJs4zdILh11SEm6jPFQBf6DbI!/b/dDUBAAAAAAAA&bo=WAKQAQAAAAARF.s!&rf=viewer_4&t=5
+.. |t10| image:: http://m.qpic.cn/psb?/V13TVzVU3hBV8n/7NyiObiZ*L81WhzZjapUaSAvX4VBMBgyZHXVAQ.yEb8!/b/dL8AAAAAAAAA&bo=WAKQAQAAAAARF.s!&rf=viewer_4
+.. |t11| image:: http://m.qpic.cn/psb?/V13TVzVU3hBV8n/kXgIgXivsfr61ie6KvIHBkxI.TtlCEdteeVTI6hqCm8!/b/dLgAAAAAAAAA&bo=WAKQAQAAAAARF.s!&rf=viewer_4&t=5
+.. |t12| image:: http://m.qpic.cn/psb?/V13TVzVU3hBV8n/pv1.6xhNgQBJdK9H5z*TfNfNLD6lKWYXo*FvjEMQNYU!/b/dMMAAAAAAAAA&bo=cgFZAgAAAAADBwo!&rf=viewer_4
+.. |t13| image:: http://m.qpic.cn/psb?/V13TVzVU3hBV8n/hVpiYRbKdnmTRtfjUrAZWR02CuZhRNYiX*qTj8NjWYE!/b/dL8AAAAAAAAA&bo=jQHxAQAAAAADB14!&rf=viewer_4&t=5
+
+3.4适应性需求
+=================
+
+本系统运行于各类平台，只需连接校园内部网，通过可运行浏览器即可。软件系统符合主流软件的标准，快捷键，语言，基本操作流程，交互等。服务器提供数据库，JDBC接口。网络支持TCP/IP协议。
+
+3.5保密性需求和私密性需求
+=================================
+本系统必须通过账号，密码登录系统。并且严格区分用户权限，分类开放功能与信息。
+
+本系统只支持校内网浏览，保护了信息数据。
+
+3.6计算机资源需求
+==================
+
+本系统限制最大访问机器数为两万台,Window 2000以上操作系统。
+
+3.7故障处理
+==================
+|t8|
